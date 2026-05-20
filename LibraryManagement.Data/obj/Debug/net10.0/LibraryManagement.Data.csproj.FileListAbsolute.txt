@@ -1,0 +1,17 @@
+/Users/akshaya/Library_Webapi/LibraryManagement.Data/bin/Debug/net10.0/LibraryManagement.Data.deps.json
+/Users/akshaya/Library_Webapi/LibraryManagement.Data/bin/Debug/net10.0/LibraryManagement.Data.runtimeconfig.json
+/Users/akshaya/Library_Webapi/LibraryManagement.Data/bin/Debug/net10.0/LibraryManagement.Data.dll
+/Users/akshaya/Library_Webapi/LibraryManagement.Data/bin/Debug/net10.0/LibraryManagement.Data.pdb
+/Users/akshaya/Library_Webapi/LibraryManagement.Data/bin/Debug/net10.0/LibraryManagement.Models.dll
+/Users/akshaya/Library_Webapi/LibraryManagement.Data/bin/Debug/net10.0/LibraryManagement.Models.pdb
+/Users/akshaya/Library_Webapi/LibraryManagement.Data/obj/Debug/net10.0/LibraryManagement.Data.csproj.AssemblyReference.cache
+/Users/akshaya/Library_Webapi/LibraryManagement.Data/obj/Debug/net10.0/LibraryManagement.Data.GeneratedMSBuildEditorConfig.editorconfig
+/Users/akshaya/Library_Webapi/LibraryManagement.Data/obj/Debug/net10.0/LibraryManagement.Data.AssemblyInfoInputs.cache
+/Users/akshaya/Library_Webapi/LibraryManagement.Data/obj/Debug/net10.0/LibraryManagement.Data.AssemblyInfo.cs
+/Users/akshaya/Library_Webapi/LibraryManagement.Data/obj/Debug/net10.0/LibraryManagement.Data.csproj.CoreCompileInputs.cache
+/Users/akshaya/Library_Webapi/LibraryManagement.Data/obj/Debug/net10.0/LibraryM.D1005E98.Up2Date
+/Users/akshaya/Library_Webapi/LibraryManagement.Data/obj/Debug/net10.0/LibraryManagement.Data.dll
+/Users/akshaya/Library_Webapi/LibraryManagement.Data/obj/Debug/net10.0/refint/LibraryManagement.Data.dll
+/Users/akshaya/Library_Webapi/LibraryManagement.Data/obj/Debug/net10.0/LibraryManagement.Data.pdb
+/Users/akshaya/Library_Webapi/LibraryManagement.Data/obj/Debug/net10.0/LibraryManagement.Data.genruntimeconfig.cache
+/Users/akshaya/Library_Webapi/LibraryManagement.Data/obj/Debug/net10.0/ref/LibraryManagement.Data.dll
