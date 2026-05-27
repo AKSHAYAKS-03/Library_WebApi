@@ -50,19 +50,25 @@ public class LibraryDbContext : DbContext
             entity.HasKey(x => x.MemberId);
 
             entity.Property(x => x.FullName)
-                .IsRequired()
                 .HasMaxLength(150);
 
             entity.Property(x => x.Email)
-                .IsRequired()
                 .HasMaxLength(255);
 
             entity.Property(x => x.PhoneNumber)
-                .IsRequired()
                 .HasMaxLength(10);
 
             entity.Property(x => x.MembershipDate)
-                .IsRequired();
+                .IsRequired(false);
+
+            entity.Property(x => x.ExcelFileName)
+                .HasMaxLength(260);
+
+            entity.Property(x => x.ExcelContentType)
+                .HasMaxLength(100);
+
+            entity.Property(x => x.ExcelFileData)
+                .HasColumnType("varbinary(max)");
 
             entity.HasIndex(x => x.Email).IsUnique();
             entity.HasIndex(x => x.PhoneNumber).IsUnique();

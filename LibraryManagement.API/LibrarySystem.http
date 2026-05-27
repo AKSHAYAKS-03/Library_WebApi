@@ -4,3 +4,13 @@ GET {{LibrarySystem_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+
+POST {{LibrarySystem_HostAddress}}/api/members/upload
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="excelFile"; filename="members.xlsx"
+Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+
+< ./members.xlsx
+--boundary--

@@ -31,4 +31,14 @@ public class MemberRepository : IMemberRepository
     {
         return _context.Members.FirstOrDefaultAsync(x => x.MemberId == memberId);
     }
+
+    public Task<Member?> GetByEmail(string email)
+    {
+        return _context.Members.FirstOrDefaultAsync(x => x.Email == email);
+    }
+
+    public Task<Member?> GetByPhoneNumber(string phoneNumber)
+    {
+        return _context.Members.FirstOrDefaultAsync(x => x.PhoneNumber == phoneNumber);
+    }
 }

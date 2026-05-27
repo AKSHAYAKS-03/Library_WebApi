@@ -36,10 +36,14 @@ public partial class InitialCreate : Migration
             {
                 MemberId = table.Column<int>(type: "int", nullable: false)
                     .Annotation("SqlServer:Identity", "1, 1"),
-                FullName = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
-                Email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                PhoneNumber = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
-                MembershipDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                FullName = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: true),
+                Email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                PhoneNumber = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: true),
+                Age = table.Column<int>(type: "int", nullable: true),
+                MembershipDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                ExcelFileName = table.Column<string>(type: "nvarchar(260)", maxLength: 260, nullable: true),
+                ExcelContentType = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                ExcelFileData = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
             },
             constraints: table =>
             {

@@ -15,6 +15,7 @@ public class MemberService : IMemberService
     public async Task<Member> AddMember(Member member)
     {
         ValidateMember(member);
+        await EnsureMemberIsUnique(member);
         return await _memberRepository.Add(member);
     }
 
@@ -34,13 +35,54 @@ public class MemberService : IMemberService
         if (member is null)
             throw new ArgumentNullException(nameof(member));
 
-        if (string.IsNullOrWhiteSpace(member.FullName))
-            throw new ArgumentException("Member full name should not be empty.");
+        var hasData =
+            !string.IsNullOrWhiteSpace(member.FullName) ||
+            !string.IsNullOrWhiteSpace(member.Email) ||
+            !string.IsNullOrWhiteSpace(member.PhoneNumber) ||
+            member.MembershipDate.HasValue ||
+            member.Age.HasValue;
 
-        if (string.IsNullOrWhiteSpace(member.Email))
-            throw new ArgumentException("Email should not be empty.");
+        var hasFile = member.ExcelFileData is { Length: > 0 };
 
-        if (string.IsNullOrWhiteSpace(member.PhoneNumber))
-            throw new ArgumentException("Phone number should not be empty.");
+        if (!hasData && !hasFile)
+            throw new ArgumentException("Provide either member data or an Excel file.");
+
+        if (hasData)
+        {
+            if (string.IsNullOrWhiteSpace(member.FullName))
+                throw new ArgumentException("Member full name should not be empty.");
+
+            if (string.IsNullOrWhiteSpace(member.Email))
+                throw new ArgumentException("Email should not be empty.");
+
+            if (string.IsNullOrWhiteSpace(member.PhoneNumber))
+                throw new ArgumentException("Phone number should not be empty.");
+
+            if (!member.MembershipDate.HasValue)
+                throw new ArgumentException("Membership date should not be empty.");
+        }
+
+        if (hasFile)
+        {
+            if (string.IsNullOrWhiteSpace(member.ExcelFileName))
+                throw new ArgumentException("Excel file name should not be empty.");
+        }
+    }
+
+    private async Task EnsureMemberIsUnique(Member member)
+    {
+        if (!string.IsNullOrWhiteSpace(member.Email))
+        {
+            var existingByEmail = await _memberRepository.GetByEmail(member.Email.Trim());
+            if (existingByEmail is not null)
+                throw new DuplicateMemberException($"A member with email '{member.Email}' already exists.");
+        }
+
+        if (!string.IsNullOrWhiteSpace(member.PhoneNumber))
+        {
+            var existingByPhone = await _memberRepository.GetByPhoneNumber(member.PhoneNumber.Trim());
+            if (existingByPhone is not null)
+                throw new DuplicateMemberException($"A member with phone number '{member.PhoneNumber}' already exists.");
+        }
     }
 }
